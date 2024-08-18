@@ -1,54 +1,57 @@
+import CustomButton from "@/components/CustomButton";
 import { PopularEvent } from "@/components/events/PopularEvent";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import React from "react";
-import { Text, View, StyleSheet, ScrollView, Image } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  ScrollView,
+  Image,
+  Button,
+  TouchableOpacity,
+  Dimensions,
+  TouchableHighlight,
+  TouchableHighlightBase,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 16,
-    color: "blue",
-    textAlign: "center",
-  },
-});
+const Main = () => {
+  const { width, height } = Dimensions.get("window");
 
-const YourApp = () => {
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "#FFFFFF",
+      gap: 3,
+    },
+    text: {
+      fontSize: 48,
+      fontWeight: "bold",
+    },
+    caption: {
+      fontSize: 16,
+      fontWeight: "400",
+    },
+  });
+
+  const handlePress = () => {
+    router.push("/sign_in");
+  };
+
   return (
-    <ScrollView>
-      {/* Header */}
-      <View>
-        <Text>Hello Sri</Text>
-        <Text>Today, Aug 13, 2024</Text>
-        <Text>Current Location</Text>
-        <Image
-          source={{
-            uri: "https://reactnative.dev/img/tiny_logo.png",
-          }}
-          style={{ width: 50, height: 50 }}
-        />
-      </View>
-
-      <Text>Filter</Text>
-
-      {/* Popular Events */}
-      <ScrollView>
-        <PopularEvent />
-      </ScrollView>
-
-      <EventForYou />
-    </ScrollView>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.text}>
+        Meet<Text style={{ color: "#F2583E" }}>Up</Text>
+      </Text>
+      <Text style={styles.caption}>
+        A place where all UI/UX designers gather
+      </Text>
+      <CustomButton handlePress={handlePress} text="Explore" />
+    </SafeAreaView>
   );
 };
 
-const EventForYou = () => {
-  return <View>
-    <View>
-        <View>
-            <Text>Events For you</Text>
-            <Text>These events are customized as per your preference</Text>
-        </View>
-        <Link href="/">VIEW ALL</Link>
-    </View>
-  </View>;
-};
-
-export default YourApp;
+export default Main;

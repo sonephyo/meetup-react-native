@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "meetup-react-native",
-    "slug": "meetup-react-native",
+    "name": "meet_designers",
+    "slug": "meet_designers",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

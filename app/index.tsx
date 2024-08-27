@@ -1,5 +1,4 @@
 import CustomButton from "@/components/CustomButton";
-import { PopularEvent } from "@/components/events/PopularEvent";
 import { Link, router } from "expo-router";
 import React from "react";
 import {
@@ -24,7 +23,7 @@ const Main = () => {
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      backgroundColor: "#FFFFFF",
+      backgroundColor: "#f",
       gap: 3,
     },
     text: {
@@ -44,7 +43,7 @@ const Main = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>
-        Meet<Text style={{ color: "#F2583E" }}>Up</Text>
+        Meet<Text style={{ color: "#F2583E" }}>Designers</Text>
       </Text>
       <Text style={styles.caption}>
         A place where all UI/UX designers gather

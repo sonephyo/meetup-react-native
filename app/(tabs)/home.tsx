@@ -1,4 +1,4 @@
-import { PopularEvent } from "@/components/events/PopularEvent";
+import { PopularEvents } from "@/components/events/PopularEvent";
 import { Link, router } from "expo-router";
 import React from "react";
 import {
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     backgroundColor: "white",
     margin: 10,
-    borderRadius: 4,
+    borderRadius: 7,
     shadowColor: "black",
     shadowOffset: {
       width: 0,
@@ -69,11 +69,12 @@ const Home = () => {
         <Text
           style={{
             marginLeft: "auto",
-            paddingRight: 24,
+            marginRight: 24,
             fontWeight: "bold",
             letterSpacing: 1,
             color: "#F0635A",
-            textDecorationLine: "underline",
+            borderBottomWidth: 1,
+            borderColor: "#F2583E"
           }}
         >
           Filter
@@ -90,10 +91,8 @@ const Home = () => {
           ))}
         </ScrollView>
 
-        {/* Popular Events */}
-        <ScrollView>
-          <PopularEvent />
-        </ScrollView>
+        <PopularEvents />
+        
         <EventForYou />
       </ScrollView>
     </SafeAreaView>

@@ -1,4 +1,6 @@
-import { PopularEvents } from "@/components/events/PopularEvent";
+import { PopularEvents } from "@/components/Home/PopularEvents";
+import EventForYou from "@/components/Home/EventForYou";
+import TopContainer from "@/components/Home/TopContainer";
 import { Link, router } from "expo-router";
 import React from "react";
 import {
@@ -10,108 +12,27 @@ import {
   Button,
   TouchableOpacity,
   SafeAreaView,
+  Dimensions,
 } from "react-native";
 
 const styles = StyleSheet.create({
-  top_container: {
-    paddingTop: 60,
-    padding: 24,
-    display: "flex",
-    flexDirection: "row",
-    gap: 96,
-    marginHorizontal: "auto",
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 16,
-    color: "blue",
-    textAlign: "center",
-  },
-  shadowBox: {
-    alignSelf: "center",
-    backgroundColor: "white",
-    margin: 10,
-    borderRadius: 7,
-    shadowColor: "black",
-    shadowOffset: {
-      width: 0,
-      height: 0,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 7,
-    gap: 20,
-    padding: 5,
-    elevation: 2
-  },
+
 });
+
+const width = Dimensions.get("window").width;
 
 const Home = () => {
   return (
     <SafeAreaView style={{ backgroundColor: "#FFFFFF" }}>
       <ScrollView>
-        {/* Header */}
-        <View style={styles.top_container}>
-          <View>
-            <Text style={{ fontSize: 42, fontWeight: "800" }}>Hello Sri</Text>
-            <Text style={{ fontWeight: "bold", fontSize: 16 }}>
-              Today, Aug 13, 2024
-            </Text>
-            <Text>Current Location</Text>
-          </View>
-          <Image
-            source={{
-              uri: "https://reactnative.dev/img/tiny_logo.png",
-            }}
-            style={{ width: 60, height: 60, borderRadius: 100 }}
-          />
-        </View>
-
-        <Text
-          style={{
-            marginLeft: "auto",
-            marginRight: 24,
-            fontWeight: "bold",
-            letterSpacing: 1,
-            color: "#F0635A",
-            borderBottomWidth: 1,
-            borderColor: "#F2583E"
-          }}
-        >
-          Filter
-        </Text>
-
-        <ScrollView
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-        >
-          {[0, 1, 2, 3, 4].map((i) => (
-            <TouchableOpacity style={styles.shadowBox} key={i}>
-              <Text style={{fontSize: 16}}>Hello World</Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-
+        {/* The section that relates to your personal information */}
+        <TopContainer />
+        {/* The project that are popular based as of now */}
         <PopularEvents />
-        
+        {/* The Events that are selected based on your personal preferences */}
         <EventForYou />
       </ScrollView>
     </SafeAreaView>
-  );
-};
-
-const EventForYou = () => {
-  return (
-    <View>
-      <View>
-        <View>
-          <Text>Events For you</Text>
-          <Text>These events are customized as per your preference</Text>
-        </View>
-        <TouchableOpacity onPress={() => {}}>
-          <Text>Continue</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
   );
 };
 
